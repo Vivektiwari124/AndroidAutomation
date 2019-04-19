@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="24090" started-at="2019-04-18T11:53:55Z" finished-at="2019-04-18T11:54:19Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="24090" started-at="2019-04-18T11:53:55Z" finished-at="2019-04-18T11:54:19Z">
+      <class name="Com.NYT.TestCases.ToVerifySettingOption">
+        <test-method status="PASS" signature="toCheckSettingItemPart1()[pri:0, instance:Com.NYT.TestCases.ToVerifySettingOption@146ba0ac]" name="toCheckSettingItemPart1" duration-ms="16665" started-at="2019-04-18T11:53:55Z" finished-at="2019-04-18T11:54:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- toCheckSettingItemPart1 -->
+      </class> <!-- Com.NYT.TestCases.ToVerifySettingOption -->
+      <class name="Com.NYT.TestCases.toVerifyLogin">
+        <test-method status="PASS" signature="toVerifyLoginfunc()[pri:0, instance:Com.NYT.TestCases.toVerifyLogin@464bee09]" name="toVerifyLoginfunc" duration-ms="7379" started-at="2019-04-18T11:54:12Z" finished-at="2019-04-18T11:54:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- toVerifyLoginfunc -->
+      </class> <!-- Com.NYT.TestCases.toVerifyLogin -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
