@@ -1,24 +1,15 @@
 package Com.NYT.TestCases;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import Com.Steps.*;
-import Com.NYT.BasePackage.BasePackage;
-import Com.NYT.Pages.Const;
-import Com.NYT.Pages.HomePage;
+import Com.NYT.BasePackage.businessComponent;
 
-public class toVerifyLogin extends BasePackage{
+public class toVerifyLogin extends businessComponent {
 
 	@Test
 	public void toVerifyLoginfunc() {
 
 		try {
-
-			//Thread.sleep(2000);
-			BasePackage b = new BasePackage();
-			b.Appinvoke();
-			LoginSteps.Login_Click();
-			b.QuitApp();
+			Login_Click();
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,14 +1,15 @@
 package Com.NYT.TestCases;
-
 import org.testng.annotations.Test;
+import Com.NYT.BasePackage.businessComponent;
 
-import Com.NYT.Utils.UtilityClass;
 
-public class ToVerifyVerticalScroll extends UtilityClass{
-	
+public class ToVerifyVerticalScroll extends businessComponent {
+
 	@Test
-	public void ScrollTest() {
-		UtilityClass.scrollvertical();
+	public void ScrollTest() throws InterruptedException {
+		Thread.sleep(5000);
+		scrollvertical();
+
 	}
 
 }

@@ -1,19 +1,13 @@
 package Com.NYT.TestCases;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import Com.NYT.BasePackage.businessComponent;
 
-import Com.NYT.Pages.Const;
-import Com.NYT.Utils.UtilityClass;
-import Com.Steps.SectionListScroll;
+public class toVerifySectionListScrolling extends businessComponent {
 
-public class toVerifySectionListScrolling extends UtilityClass {
-
-	//@Test
+	@Test
 	public void ToVerifySectionListScroll() {
-
-		SectionListScroll.scrollSectionList();
-
+		scrollSectionListVertical();
 	}
 
 }

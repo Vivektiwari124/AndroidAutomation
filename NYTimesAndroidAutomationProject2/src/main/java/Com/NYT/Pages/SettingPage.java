@@ -1,78 +1,77 @@
 package Com.NYT.Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class SettingPage {
+
+	AppiumDriver<MobileElement> driver;
+
+	public SettingPage(AppiumDriver<MobileElement> driver) {
+		this.driver = driver;
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+	}
 	
-	public static MobileElement Backsection = Const.driver
-			.findElement(By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='vivek.tiwari@nytimes.com']")
+	MobileElement logindetail;
 
-	public static MobileElement LoginorRegitser = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Log In or Register']"));
 
-	public static MobileElement notification = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Notifications']"));
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']")
+	MobileElement Backsection;
 
-	public static MobileElement TextSize = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Text Size']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Log In or Register']")
+	MobileElement LoginorRegitser;
 
-	public static MobileElement VideoAutoplay = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Video Autoplay']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Notifications']")
+	MobileElement notification;
 
-	public static MobileElement EnglishEdition = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='English Edition']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Text Size']")
+	MobileElement TextSize;
 
-	public static MobileElement SpanishEsiction = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='NYT en Español']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Video Autoplay']")
+	MobileElement VideoAutoplay;
 
-	public static MobileElement BackgroundUpdate = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Background Update']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='English Edition']")
+	MobileElement EnglishEdition;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='NYT en Español']")
+	MobileElement SpanishEsiction;
 
-	public static MobileElement Offlinereading = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Offline Reading']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Background Update']")
+	MobileElement BackgroundUpdate;
 
-	public static MobileElement ImageDownloadSetting;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Offline Reading']")
+	MobileElement Offlinereading;
 
-	public static MobileElement SuspendedDelivery;
-	public static MobileElement DeleiveryProblem;
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@index='0']")
+	MobileElement backButton;
 
-	public static MobileElement Support;
-	public static MobileElement ChatWithUS;
-	public static MobileElement AppFeedback;
-	public static MobileElement NewsRoom;
-	public static MobileElement FAQ;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Settings']")
+	MobileElement Settingtext;
 
-	public static MobileElement AboutApplication;
-	public static MobileElement AboutTeam;
-	public static MobileElement NYTExperiments;
-
-	public static MobileElement backButton = Const.driver
-			.findElementByXPath("//android.widget.ImageButton[@index='0']");
-
-	public static MobileElement Settingtext = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Settings']");
-
-	public static MobileElement logintext = Const.driver.findElementById("android:id/title");
-
-	public static MobileElement getSettingPageElemet(MobileElement element) {
-		return element;
+	public void clickLogin() {
+		LoginorRegitser.click();
+	}
+	
+	public String readdata() {
+		return logindetail.getText();
 	}
 
-	public static boolean validateLoginORRegiter() {
+	public boolean validatenotification() {
+		return notification.isDisplayed();
+	}
+
+	public boolean validateTextSize() {
+		return TextSize.isDisplayed();
+	}
+
+	public boolean validateLoginORRegiter() {
 		return LoginorRegitser.isDisplayed();
 
 	}
-
-	public static boolean validatenotification() {
-		return notification.isDisplayed();
-	}
-	
-	public static boolean validateTextSize() {
-		return notification.isDisplayed();
-	}
-	
-	
 
 }

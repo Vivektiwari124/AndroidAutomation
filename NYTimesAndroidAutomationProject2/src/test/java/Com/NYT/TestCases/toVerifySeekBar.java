@@ -1,13 +1,12 @@
 package Com.NYT.TestCases;
 
 import org.testng.annotations.Test;
+import Com.NYT.BasePackage.businessComponent;
 
-import Com.NYT.Utils.UtilityClass;
+public class toVerifySeekBar extends businessComponent {
 
-public class toVerifySeekBar extends UtilityClass{
-	
-	
+	@Test
 	public void SeekbarTest() {
-		UtilityClass.SeekBarTest();
+		checkSeekBar();
 	}
 }

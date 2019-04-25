@@ -3,11 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="Com.NYT.TestCases.ToVerifySettingOption">
+      <class name="Com.NYT.TestCases.ToVerifySections">
         <methods>
-          <include name="toCheckSettingItemPart1"/>
+          <include name="Appinvoke"/>
+          <include name="QuitApp"/>
+          <include name="installApp"/>
+          <include name="checkSectionlist"/>
         </methods>
-      </class> <!-- Com.NYT.TestCases.ToVerifySettingOption -->
+      </class> <!-- Com.NYT.TestCases.ToVerifySections -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

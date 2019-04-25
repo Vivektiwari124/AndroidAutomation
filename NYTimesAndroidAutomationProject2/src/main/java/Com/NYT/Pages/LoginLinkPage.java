@@ -2,15 +2,27 @@ package Com.NYT.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class LoginLinkPage {
 
-	public static MobileElement loginWithEmaillink = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Log in with email instead »']");
+	AppiumDriver<MobileElement> driver;
 
-	public static MobileElement getLoginPageElement(MobileElement element) {
-		return element;
+	public LoginLinkPage(AppiumDriver<MobileElement> driver) {
+		this.driver = driver;
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
 	}
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Log in with email instead »']")
+	MobileElement loginWithEmaillink;
+	
+	public void clickLoginLink() {
+		loginWithEmaillink.click();
+	}
+
 }

@@ -1,75 +1,84 @@
 package Com.NYT.Pages;
 
+import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
+import org.openqa.selenium.support.PageFactory;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class SectionList {
 
-	public static MobileElement SearchIcon = Const.driver.findElement(By.id("com.nytimes.android.debug:id/search"));
-	public static MobileElement Settingicon = Const.driver.findElement(By.id("com.nytimes.android.debug:id/settings"));
-	public static MobileElement SubscribeText = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='Subscribe']"));
+	AppiumDriver<MobileElement> driver;
 
-	public static MobileElement loginaccounttext = Const.driver.findElement(
-			By.xpath("//android.widget.TextView[contains(@resource-id,'profileSecondary') and @index='0']"));
+	public SectionList(AppiumDriver<MobileElement> driver) {
+		this.driver = driver;
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+	}
 
-	public static MobileElement profileSummary = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='vivek.tiwari@nytimes.com']"));
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Settings']")
+	MobileElement Settingtext;
 
-	// public static MobileElement profileSummaryy = Const.driver
-	// .findElement(By.id("com.nytimes.android.debug:id/profilePrimary"));
+	@AndroidFindBy(id = "com.nytimes.android:id/search")
+	MobileElement Search;
+	@AndroidFindBy(id = "com.nytimes.android:id/settings")
+	MobileElement Settingicon;
 
-	public static MobileElement podcastText = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Podcasts Beta']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Subscribe']")
+	MobileElement SubscribeText;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Log In or Create Account']")
+	MobileElement loginaccounttext;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='vivek.tiwari@nytimes.com']")
+	MobileElement profileSummary;
+	@AndroidFindBy(xpath = "com.nytimes.android.debug:id/profilePrimary")
+	MobileElement profileSummaryy;
 
-	public static MobileElement CustText = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='CUSTOMIZED SECTIONS']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Podcasts Beta']")
+	MobileElement podcastText;
 
-	public static MobileElement EditText = Const.driver.findElementByXPath("//android.widget.TextView[@text='EDIT']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='CUSTOMIZED SECTIONS']")
+	MobileElement CustText;
 
-	public static MobileElement HomeSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Home']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='EDIT']")
+	MobileElement EditText;
 
-	public static MobileElement MostPopularSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Most Popular']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Home']")
+	MobileElement HomeSection;
 
-	public static MobileElement OpinionSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Opinion']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Most Popular']")
+	MobileElement MostPopularSection;
 
-	public static MobileElement WorldSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='World']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Opinion']")
+	MobileElement OpinionSection;
 
-	public static MobileElement USSection = Const.driver.findElementByXPath("//android.widget.TextView[@text='U.S.']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='World']")
+	MobileElement WorldSection;
 
-	public static MobileElement BusinessSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Business']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='U.S.']")
+	MobileElement USSection;
 
-	public static MobileElement SportsSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Sports']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Business']")
+	MobileElement BusinessSection;
 
-	public static MobileElement ArtsSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Arts']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Sports']")
+	MobileElement SportsSection;
 
-	public static MobileElement NewYorkSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='New York']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Arts']")
+	MobileElement ArtsSection;
 
-	public static MobileElement MagazineSection = Const.driver
-			.findElementByXPath("//android.widget.TextView[@text='Magazine']");
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='New York']")
+	MobileElement NewYorkSection;
 
-	/*
-	 * List<MobileElement> elements =
-	 * driver.findElements(By.className("android.widget.ImageView"));
-	 * for(MobileElement element : elements) {
-	 * if(element.getAttribute("contentDescription").equals("Search")) {
-	 * element.click(); break; } }
-	 */
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Magazine']")
+	MobileElement MagazineSection;
 
-	// This is the common method to get all WebElement present in Section list
-	public static MobileElement getSectionListElement(MobileElement element) {
-		return element;
+	public void clickSearch() {
+		Search.click();
+	}
+
+	public void clickSettingicon() {
+		Settingicon.click();
 	}
 
 }

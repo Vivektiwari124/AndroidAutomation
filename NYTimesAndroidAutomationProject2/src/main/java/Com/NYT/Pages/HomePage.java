@@ -1,42 +1,56 @@
 package Com.NYT.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import Com.NYT.BasePackage.BasePackage;
+import org.openqa.selenium.support.PageFactory;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePage  {
+public class HomePage {
 
-	public static MobileElement hemberger = Const.driver
-			.findElement(By.xpath("//android.widget.ImageButton[@index='0']"));
+	AppiumDriver<MobileElement> driver;
 
-	public static MobileElement overFlowicon = Const.driver
-			.findElement(By.xpath("//android.widget.ImageView[contains(@content-desc,'More options') and @index='0']"));
+	public HomePage(AppiumDriver<MobileElement> driver) {
+		this.driver = driver;
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+	}
 
-	public static MobileElement sectionname = Const.driver
-			.findElement(By.xpath("//android.widget.TextView[@text='OPINION']"));
-	public static MobileElement image = Const.driver.findElement(By.id("com.nytimes.android.debug:id/media_image"));
-	public static MobileElement NamePlate = Const.driver.findElement(By.id("com.nytimes.android.debug:id/nameplate"));
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'More options') and @index='0']")
+	MobileElement overflowIcon;
 
-	public static MobileElement getHomePageElemet(MobileElement element) {
-		return element;
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@index='0']")
+	MobileElement hemberger;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='OPINION']")
+	MobileElement sectionname;
+	
+	@FindBy(xpath = "//android.widget.TextView[@text='Opinion']")
+	List<MobileElement> allelements;
+
+	public List<MobileElement> getGroupName() {
+		return allelements;
 
 	}
 
-	public static boolean validateHomePageImage() {
-		return image.isDisplayed();
-
+	
+	
+	
+	
+	
+	public void clickOverFlow() {
+		overflowIcon.click();
 	}
 
-	public static boolean validateTemplate() {
-		return NamePlate.isDisplayed();
-
+	public void clickHemberger() {
+		hemberger.click();
 	}
 
-	public static boolean validateHemberger() {
-		return hemberger.isDisplayed();
+	public void clickSectionname() {
+		sectionname.click();
 	}
+
 }
